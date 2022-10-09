@@ -1,4 +1,4 @@
-<div class="container d-flex align-items-center w-100" style="height: 100vh;">
+<div class="container d-flex align-items-center" style="height: 80vh;">
     <div class="d-flex flex-column align-items-center justify-content-center text-center">
         <h1 class="display-4">
             Hi, <?= $data["name"]; ?>
