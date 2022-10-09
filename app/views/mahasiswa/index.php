@@ -8,7 +8,7 @@
             <ul>
                 <li><?= $mhs["name"]; ?></li>
                 <li><?= $mhs["nim"]; ?></li>
-                <li><?= $mhs["gmail"]; ?></li>
+                <li><?= $mhs["email"]; ?></li>
                 <li><?= $mhs["jurusan"]; ?></li>
             </ul>
             <?php endforeach; ?>
