@@ -1,29 +1,49 @@
-<div class="container mt-5">
+<div class="container mt-4">
     <div class="row">
       <div class="col-lg-6">
         <?php Flasher::flash() ?>
       </div>
     </div>
+
+    <!-- Button Add: Start -->
+    <div class="row mb-4">
+      <div class="col-lg-6">
+        <button type="button" class="btn btn-primary btnAddData" data-bs-toggle="modal" data-bs-target="#formModal">
+          Add Data Mahasiswa
+        </button>
+      </div>
+    </div>
+    <!-- Button Add: End -->
+
+    <!-- Button Search: Start -->
+    <div class="row mb-4">
+      <div class="col-lg-6">
+        <form action="<?= BASEURL; ?>/mahasiswa/search" method="post">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search Mahasiswa . . ." name="keyword" id="keyword" autocomplete="off">
+            <button class="btn btn-primary" type="submit" id="btnSearch">
+              Search
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Button Search: End -->
     
     <div class="row">
         <div class="col-lg-6">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary btnAddData" data-bs-toggle="modal" data-bs-target="#formModal">
-                Add
-            </button>
-
-            <h3>Daftar Mahaiswa</h3>
+            <h3>Daftar Mahasiswa</h3>
             <ul class="list-group">
                 <?php foreach($data["mhs"] as $mhs) : ?>
                 <li class="list-group-item">
                     <?= $mhs["name"]; ?>
-                    <a href="<?= BASEURL ?>/mahasiswa/remove/<?= $mhs["id"]; ?>" class="badge text-bg-danger float-end ms-1" onclick="return confirm('Yakin?')">
+                    <a href="<?= BASEURL; ?>/mahasiswa/remove/<?= $mhs["id"]; ?>" class="badge text-bg-danger float-end ms-1" onclick="return confirm('Yakin?')">
                       remove
                     </a>
-                    <a href="<?= BASEURL ?>/mahasiswa/edit/<?= $mhs["id"]; ?>" class="badge text-bg-success float-end ms-1 editModalData" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $mhs["id"]; ?>">
+                    <a href="<?= BASEURL; ?>/mahasiswa/edit/<?= $mhs["id"]; ?>" class="badge text-bg-success float-end ms-1 editModalData" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $mhs["id"]; ?>">
                       edit
                     </a>
-                    <a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs["id"]; ?>" class="badge text-bg-primary float-end ms-1">
+                    <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs["id"]; ?>" class="badge text-bg-primary float-end ms-1">
                       detail
                     </a>
                 </li>
@@ -47,7 +67,7 @@
       </div>
       <div class="modal-body">
         
-        <form action="<?=BASEURL;?>/mahasiswa/add" method="POST">
+        <form action="<?= BASEURL; ?>/mahasiswa/add" method="POST">
           <input type="hidden" name="id" id="id">
           <div class="mb-3">
               <label for="name" class="form-label">Name</label>
