@@ -6,7 +6,7 @@ class Flasher {
         $_SESSION["flash"] = [
             "message" => $message,
             "action" => $action,
-            "type" => $$type
+            "type" => $type
         ];
     }
 

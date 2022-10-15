@@ -44,6 +44,23 @@ class Mahasiswa extends Controller {
             exit;
         }
     }
+
+    public function getEdit()
+    {
+        echo json_encode($this->model("Mahasiswa_model")->getMahasiswaById($_POST['id']));
+    }
     
+    public function edit()
+    {
+        if($this->model("Mahasiswa_model")->editDataMahasiswa($_POST) > 0) {
+            Flasher::setFlash('Berhasil', 'diedit', 'success');
+            header("Location: " . BASEURL . "/mahasiswa");
+            exit;
+        }   else {
+            Flasher::setFlash('Gagal', 'diedit', 'danger');
+            header("Location: " . BASEURL . "/mahasiswa");
+            exit;
+        }
+    }
 
 }
